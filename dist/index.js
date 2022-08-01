@@ -7539,6 +7539,7 @@ async function run() {
     const actor = context.actor;
     const username = core.getInput('username');
 
+    core.info(`show me core, ${core}`);
     core.info(`[Action Query] The context actor: ${actor}.`);
     core.info(`[Action Query] The user: ${username}.`);	  
     if (!username || username.trim() === '') {
