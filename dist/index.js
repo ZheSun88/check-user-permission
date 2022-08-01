@@ -7536,7 +7536,8 @@ async function run() {
   try {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
-    const username = core.getInput('username') || context.actor;
+    const actor = context.actor;
+    const username = core.getInput('username');
 
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
@@ -7550,7 +7551,8 @@ async function run() {
       username,
     });
 
-    core.info(`[Action Query] The user: ${username} permission is ${permission}.`);
+    core.info(`[Action Query] The context actor: ${actor}.`);
+    core.info(`[Action Query] The user: ${username}.`);
     core.setOutput('user-permission', permission);
 
     const checkBot = core.getInput('check-bot');
