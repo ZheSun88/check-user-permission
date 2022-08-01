@@ -26,7 +26,8 @@ async function run() {
       username,
     });
 
-    core.info(`[Action Query] The user: ${username} permission is ${permission}.`);
+    core.info(`[Action Query] The context actor: ${context.actor}.`);
+    core.info(`[Action Query] The user: ${core.getInput('username')} permission is ${permission}.`);
     core.setOutput('user-permission', permission);
 
     const checkBot = core.getInput('check-bot');

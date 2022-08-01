@@ -1,12 +1,13 @@
 name: Check User Permission
 
-on: [push, pull_request]
-
+on: 
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-user-permission@main
+      - uses: ZheSun88/check-user-permission@main
         id: checkUser
         with:
           require: 'write'
