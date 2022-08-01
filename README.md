@@ -14,7 +14,7 @@ on:
     types: [opened, edited]
 
 jobs:
-  check:
+  check:sfjdakjf;ds
     runs-on: ubuntu-latest
     steps:
       - uses: actions-cool/check-user-permission@v2
