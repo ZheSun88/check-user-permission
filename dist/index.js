@@ -7539,6 +7539,8 @@ async function run() {
     const actor = context.actor;
     const username = core.getInput('username');
 
+    core.info(`[Action Query] The context actor: ${actor}.`);
+    core.info(`[Action Query] The user: ${username}.`);	  
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
     }
@@ -7551,8 +7553,7 @@ async function run() {
       username,
     });
 
-    core.info(`[Action Query] The context actor: ${actor}.`);
-    core.info(`[Action Query] The user: ${username}.`);
+
     core.setOutput('user-permission', permission);
 
     const checkBot = core.getInput('check-bot');
