@@ -12,7 +12,7 @@ async function run() {
   try {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
-    const username = core.getInput('username') || context.actor;
+    const username = context.actor || core.getInput('username');
 
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
