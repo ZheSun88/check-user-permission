@@ -1,8 +1,6 @@
 name: Check User Permission
 
-on:
-  issues:
-    types: [opened, edited]
+on: [push, pull_request]
 
 jobs:
   check:
