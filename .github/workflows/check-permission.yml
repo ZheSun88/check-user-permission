@@ -4,17 +4,11 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ZheSun88/check-user-permission@main
-        id: checkUser
+      - name: "Check if user has write access"
+        uses: "lannonbr/repo-permission-check-action@2.0.0"
         with:
-          require: 'write'
-
-      - name: close
-        if: steps.checkUser.outputs.check-result == 'false'
-        uses: actions-cool/issues-helper@v2.1.2
-        with:
-          actions: 'close-issue'
-          issue-number: ${{ github.event.issue.number }}
+          permission: "write"
+  
