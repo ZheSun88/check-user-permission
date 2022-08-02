@@ -7539,8 +7539,13 @@ async function run() {
     const actor = context.actor;
     const username = core.getInput('username');
     const coreString = JSON.stringify(core);
-
-    core.info(`show me core, ${coreString}`);
+    
+    let txt = "";
+    for (let x in core) {
+       txt += core[x] + " ";
+    };
+    
+    core.info(`show me core, ${txt}`);
     core.info(`[Action Query] The context actor: ${actor}.`);
     core.info(`[Action Query] The user: ${username}.`);	  
     if (!username || username.trim() === '') {
