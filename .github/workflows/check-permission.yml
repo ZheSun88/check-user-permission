@@ -4,11 +4,11 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  check:
+    runs-on: ubuntu-18.04
     steps:
-      - name: "Check if user has write access"
-        uses: "lannonbr/repo-permission-check-action@2.0.0"
+      - uses: ZheSun88/check-user-permission@main
+        id: checkUser
         with:
-          permission: "write"
+          require: 'write'
   
