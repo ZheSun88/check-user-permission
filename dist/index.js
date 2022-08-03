@@ -7537,7 +7537,7 @@ async function run() {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
     const actor = context.actor;
-    const triggerActor = github.triggering_actor;
+    const triggerActor = process.env.GITHUB_TRIGGERING_ACTOR;
     const username = core.getInput('username');
     const coreString = JSON.stringify(core);
     
