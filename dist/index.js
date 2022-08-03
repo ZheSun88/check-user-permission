@@ -7537,15 +7537,12 @@ async function run() {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
     const actor = context.actor;
+    const triggerActor = context.triggering_actor;
     const username = core.getInput('username');
     const coreString = JSON.stringify(core);
     
-    let txt = "";
-    for (let x in core) {
-       txt += core[x] + " ";
-    };
     
-    core.info(`show me core, ${txt}`);
+    core.info(`[testing message]show me triggering, ${triggerActor}`);
     core.info(`[Action Query] The context actor: ${actor}.`);
     core.info(`[Action Query] The user: ${username}.`);	  
     if (!username || username.trim() === '') {
