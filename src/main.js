@@ -18,10 +18,6 @@ async function run() {
       core.setFailed('[Action Query] Invalid username!');
     }
 
-    if (!username || username.trim() === '') {
-      core.setFailed('[Action Query] Invalid username!');
-    }
-
     const {
       data: { permission },
     } = await octokit.repos.getCollaboratorPermissionLevel({
