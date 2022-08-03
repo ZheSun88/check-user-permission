@@ -12,8 +12,11 @@ async function run() {
   try {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
-    const actor = context.actor;
-    const username = core.getInput('username');
+    const username = process.env.GITHUB_TRIGGERING_ACTOR || context.actor;
+
+    if (!username || username.trim() === '') {
+      core.setFailed('[Action Query] Invalid username!');
+    }
 
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
@@ -27,8 +30,7 @@ async function run() {
       username,
     });
 
-    core.info(`[Action Query] The context actor: ${actor}.`);
-    core.info(`[Action Query] The user: ${username}.`);
+    core.info(`[Action Query] The user: ${username} permission is ${permission}.`);
     core.setOutput('user-permission', permission);
 
     const checkBot = core.getInput('check-bot');

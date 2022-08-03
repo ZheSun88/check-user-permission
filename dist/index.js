@@ -7536,15 +7536,8 @@ async function run() {
   try {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
-    const actor = context.actor;
-    const triggerActor = process.env.GITHUB_TRIGGERING_ACTOR;
-    const username = core.getInput('username');
-    const coreString = JSON.stringify(core);
-    
-    
-    core.info(`[testing message]show me triggering, ${triggerActor}`);
-    core.info(`[Action Query] The context actor: ${actor}.`);
-    core.info(`[Action Query] The user: ${username}.`);	  
+    const username = process.env.GITHUB_TRIGGERING_ACTOR || context.actor;
+
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
     }
@@ -7557,7 +7550,7 @@ async function run() {
       username,
     });
 
-
+    core.info(`[Action Query] The user: ${username} permission is ${permission}.`);
     core.setOutput('user-permission', permission);
 
     const checkBot = core.getInput('check-bot');
