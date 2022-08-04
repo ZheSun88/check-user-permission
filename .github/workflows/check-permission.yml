@@ -5,10 +5,11 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   check:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: ZheSun88/check-user-permission@triggering-actor
+      - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
+          username: github.triggering_actor
           require: 'write'
   
