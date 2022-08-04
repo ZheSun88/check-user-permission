@@ -10,6 +10,6 @@ jobs:
       - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
-          username: env.GITHUB_TRIGGERING_ACTOR
+          username: github.triggering_actor
           require: 'write'
   
