@@ -7,8 +7,8 @@ jobs:
   check:
     runs-on: windows-latest
     steps:
-      - uses: ZheSun88/check-user-permission@triggering-actor
-        id: checkUser
+      - uses: actions-cool/check-user-permission@v2
+        username: github.triggering_actor
         with:
           require: 'write'
   
