@@ -20,7 +20,6 @@ jobs:
       - uses: actions-cool/check-user-permission@v2
 ```
 
-### Input
 
 | Name | Desc | Type | Required |
 | -- | -- | -- | -- |
